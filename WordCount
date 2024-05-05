@@ -1,0 +1,13 @@
+val inputfile=sc.textFile("filename.txt")
+
+val counts=inputfile.flatMap(line=>line.split(" ")).map(word=>(word,1)).reduceByKey(_+_);
+
+
+counts.toDebugString
+
+
+counts.cache()
+
+
+
+counts.saveAsTextFile("filename2.txt")
